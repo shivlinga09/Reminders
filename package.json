@@ -1,0 +1,15 @@
+{
+  "name": "remainder_assgn",
+  "version": "0.0.0",
+  "description": "remainder assignment project",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "author": "Shivlinga",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
