@@ -1,23 +1,21 @@
-// index.ts
+import { ReminderDatabase } from './reminder';
 
-import { ReminderDatabase } from './remainder';
+let reminderDb = new ReminderDatabase();
 
-const reminderDb = new ReminderDatabase();
+reminderDb.createReminder("Buy Milk", new Date('2025-03-15T10:00:00'));
+reminderDb.createReminder("Doctor Appointment", new Date('2025-03-16T09:00:00'));
 
-// Create some reminders
-reminderDb.createReminder("1", "Buy Milk", "Don't forget to buy milk at the store.", new Date('2025-03-15T10:00:00'));
-reminderDb.createReminder("2", "Doctor Appointment", "Check-up with Dr. Smith.", new Date('2025-03-16T09:00:00'));
+console.log("All Reminders:", reminderDb.getAllReminders());
 
-// Get all reminders
-console.log(reminderDb.getAllReminders());
+let reminders = reminderDb.getAllReminders();
+let firstId = reminders[0].id; 
+console.log("\n");
 
-// Get a specific reminder
-console.log(reminderDb.getReminder("1"));
+console.log("Get Reminder:", reminderDb.getReminder(firstId));
+console.log("\n");
+reminderDb.updateReminder(firstId, "Buy Milk and Bread");
+console.log("Updated Reminder:", reminderDb.getReminder(firstId));
+console.log("\n");
 
-// Update a reminder
-reminderDb.updateReminder("1", "Buy Milk and Bread", "Don't forget to buy milk and bread at the store.");
-console.log(reminderDb.getReminder("1"));
-
-// Remove a reminder
-reminderDb.removeReminder("2");
-console.log(reminderDb.getAllReminders());
+reminderDb.removeReminder(firstId);
+console.log("All Reminders after deletion:", reminderDb.getAllReminders());
