@@ -5,7 +5,7 @@ class Reminder {
     completed: boolean;
 
     constructor(title: string, dueDate: Date) {
-        this.id = Math.random().toString(36).substr(2, 9);
+        this.id =  Math.floor(10000 + Math.random() * 90000).toString();
         this.title = title;
         this.dueDate = dueDate;
         this.completed = false;
